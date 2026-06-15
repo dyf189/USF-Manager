@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪表盘 - USFManeger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/sidebar.css">
+    <link rel="stylesheet" href="static/sidebar.js">
+</head>
+<body>
+    <!-- 侧边栏 - 固定显示 -->
+    <aside class="sidebar" id="sidebar">
+        <!-- 顶部标题和Logo -->
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="mc-text">USFManeger</span>
+            </div>
+        </div>
+
+        <!-- 服务器状态区域 -->
+        <div class="server-status">
+            <div class="status-header">
+                <div class="status-title">{{server_name}}({{server_type}})</div>
+                <div class="status-indicator">
+                    <div class="status-dot online"></div>
+                    <div class="status-text">{{status}}</div>
+                </div>
+            </div>
+            <div class="players-count">
+                <div class="players-info">
+                    <i class="fas fa-user"></i>
+                    <span>{{online_players}}/{{max_players}} 玩家</span>
+                </div>
+                <div class="version-info">
+                    <i class="fas fa-code-branch"></i>
+                    <span>{{Minecraft_version}} {{server_version}}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航菜单 -->
+        <nav class="sidebar-nav">
+            <ul>
+                <!-- 一级菜单项 -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt nav-icon"></i>
+                        <span class="nav-text">仪表盘</span>
+                    </a>
+                </li>
+                
+                <!-- 带子菜单的项 -->
+                <li class="nav-item has-submenu" id="serverManagement">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-server nav-icon"></i>
+                        <span class="nav-text">服务器管理</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="console">
+                                <i class="fas fa-terminal nav-icon"></i>
+                                <span class="nav-text">控制台</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="backup">
+                                <i class="fas fa-save nav-icon"></i>
+                                <span class="nav-text">备份管理</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="performance">
+                                <i class="fas fa-chart-line nav-icon"></i>
+                                <span class="nav-text">性能监控</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- 带子菜单的项 -->
+                <li class="nav-item has-submenu" id="playerManagement">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users nav-icon"></i>
+                        <span class="nav-text">玩家管理</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="player-list">
+                                <i class="fas fa-list nav-icon"></i>
+                                <span class="nav-text">玩家列表</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="whitelist">
+                                <i class="fas fa-user-check nav-icon"></i>
+                                <span class="nav-text">白名单</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="bans">
+                                <i class="fas fa-ban nav-icon"></i>
+                                <span class="nav-text">封禁管理</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- 带子菜单的项 -->
+                <li class="nav-item has-submenu" id="pluginManagement">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-puzzle-piece nav-icon"></i>
+                        <span class="nav-text">插件管理</span>
+                        <i class="fas fa-chevron-right nav-arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="plugins">
+                                <i class="fas fa-boxes nav-icon"></i>
+                                <span class="nav-text">插件列表</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-section="install-plugin">
+                                <i class="fas fa-download nav-icon"></i>
+                                <span class="nav-text">安装插件</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- 其他单级菜单项 -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="worlds">
+                        <i class="fas fa-globe nav-icon"></i>
+                        <span class="nav-text">世界管理</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="logs">
+                        <i class="fas fa-clipboard-list nav-icon"></i>
+                        <span class="nav-text">日志查看</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-section="settings">
+                        <i class="fas fa-sliders-h nav-icon"></i>
+                        <span class="nav-text">系统设置</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 底部信息 -->
+        <div class="sidebar-footer">
+            <div class="server-info">
+                <i class="fas fa-hdd"></i>
+                <span>内存: {{memory_used}}/{{memory_total}}</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+
+    </main>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>

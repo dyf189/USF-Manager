@@ -10,7 +10,7 @@
             "number": 2,
             "name": "USF Github官方源",
             "description": "由USFrameTeam提供的无名氏管理框架(USF)V1-V2 Github官方源 \n 注意:该源从Github仓库获取,需要网络环境良好",
-            "fileListUrl": "https://raw.githubusercontent.com/YYTZ666/usfdown/refs/heads/main/config/file.js",
-            "downloadUrl": "https://raw.githubusercontent.com/YYTZ666/usfdown/refs/heads/main/files/main/"
+            "fileListUrl": "https://raw.githubusercontent.com/YYTZ666/usfdown/refs/heads/main/src/config/file.js",
+            "downloadUrl": "https://raw.githubusercontent.com/YYTZ666/usfdown/refs/heads/main/public/files/main/"
         }
     ]

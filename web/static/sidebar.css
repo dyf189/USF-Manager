@@ -1,0 +1,248 @@
+/* Minecraft面板侧边栏样式 - 简化版 */
+
+:root {
+    --mc-dark-green: #2d5a27;
+    --mc-green: #3a7233;
+    --mc-light-green: #5a9c4e;
+    --mc-dark-gray: #1e1e1e;
+    --mc-gray: #2d2d2d;
+    --mc-light-gray: #3f3f3f;
+    --mc-text: #f0f0f0;
+    --mc-accent: #f0a830;
+    --mc-red: #c44d4d;
+    --mc-blue: #4d7bc4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #151515;
+    color: var(--mc-text);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 侧边栏样式 - 固定宽度 */
+.sidebar {
+    width: 260px;
+    background-color: var(--mc-dark-gray);
+    border-right: 3px solid var(--mc-green);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* 顶部标题区域 */
+.sidebar-header {
+    padding: 20px 15px;
+    border-bottom: 2px solid var(--mc-green);
+    background-color: rgba(45, 90, 39, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    color: var(--mc-light-green);
+    font-size: 28px;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--mc-text);
+}
+
+.logo-text .mc-text {
+    color: var(--mc-accent);
+}
+
+/* 服务器状态区域 */
+.server-status {
+    padding: 15px;
+    border-bottom: 1px solid var(--mc-gray);
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.status-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #aaa;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--mc-red);
+}
+
+.status-dot.online {
+    background-color: var(--mc-light-green);
+    box-shadow: 0 0 6px var(--mc-light-green);
+}
+
+.status-text {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.players-count {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.players-info, .version-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #bbb;
+}
+
+.players-info i, .version-info i {
+    font-size: 11px;
+}
+
+/* 导航菜单 */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: var(--mc-text);
+    text-decoration: none;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: var(--mc-gray);
+    border-left-color: var(--mc-light-green);
+}
+
+.nav-link.active {
+    background-color: var(--mc-gray);
+    border-left-color: var(--mc-accent);
+}
+
+.nav-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    margin-right: 12px;
+    color: var(--mc-light-green);
+}
+
+.nav-text {
+    font-size: 14px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.nav-arrow {
+    font-size: 11px;
+    transition: transform 0.3s;
+}
+
+.nav-item.has-submenu.open > .nav-link .nav-arrow {
+    transform: rotate(90deg);
+}
+
+/* 子菜单样式 */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: rgba(30, 30, 30, 0.6);
+}
+
+.nav-item.has-submenu.open > .submenu {
+    max-height: 500px;
+}
+
+.submenu .nav-link {
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+
+.submenu .nav-icon {
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+/* 底部信息区域 */
+.sidebar-footer {
+    padding: 15px;
+    border-top: 1px solid var(--mc-gray);
+    font-size: 12px;
+    color: #aaa;
+}
+
+.server-info, .uptime-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.server-info i, .uptime-info i {
+    font-size: 11px;
+    color: var(--mc-light-green);
+}
+
+/* 滚动条样式 */
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: var(--mc-dark-gray);
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--mc-green);
+    border-radius: 2px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: var(--mc-light-green);
+}
