@@ -1,12 +1,10 @@
-export const files = [
+const files = [
     { 
         name: "USF0.7.21F",
         description: "紧急修复记分板默认值不生效的bug",
         // 这里修复：补上缺失的 changelog 键名
         changelog: [
-                 "1·紧急修复记分板默认值不生效的bug",
-                 "2·移除了him",
-                 "3·本次更新默认适配1.21.120及以上的全部Minecraft版本"
+            "紧急修复记分板默认值不生效的bug，本次更新默认适配1.21.120及以上的全部Minecraft版本",
         ],
         contributors: [
             "USF开发团队"
