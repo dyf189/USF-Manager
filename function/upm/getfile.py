@@ -2,6 +2,7 @@ import json
 #import re
 import os
 import requests
+import urllib.request
 
 def getSource(numSource=None):# numSource 下载源编号,如不填写则默认使用一号下载源
         with open('config.json', 'r') as f: # 读取配置文件,获取默认下载源
@@ -42,8 +43,20 @@ def getList(url):
         except:
             print('获取文件列表失败，请检查网络连接以及服务器状态。')
             return
+        
+def getusf(filepath):
+    with open(filepath, 'r', encoding='utf-8') as file:
+        list = json.load(file)
+    
+    print('最新版本' + list[0]['name'])
+    url = 'https://usfdown.zuyst.top' + list[0]['downloadLink']
+    path = 'data/' + list[0]['name'] + '.zip'
 
+    urllib.request.urlretrieve(url,path)
+    
 """ 
+getusf('data/filelist.json')
+
 data = GetDownList().getSource(2)
 print(data['fileListUrl'])
 GetDownList().getList(data['fileListUrl'])
