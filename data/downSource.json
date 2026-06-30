@@ -3,7 +3,7 @@
             "number": 1,
             "name": "USF正式版官方源",
             "description": "由USFrameTeam提供的无名氏管理框架(USF)V1-V2正式版官方源",
-            "fileListUrl": "https://d.usframeteam.top/config/file.js",
+            "fileListUrl": "https://d.usframeteam.top/api/versions.json",
             "downloadUrl": "https://d.usframeteam.top/files/main/"
         },
         {
