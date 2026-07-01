@@ -51,18 +51,25 @@ def getList(url):
             return
         
 # 下载usf最新版
-def getusf(filepath):
+def getusf(filepath, get=True): # 当get为False时返回usf压缩包的路径
     with open(filepath, 'r', encoding='utf-8') as file:
         list = json.load(file)
     
     #print('最新版本' + list[0]['name'])
     url = 'https://usfdown.zuyst.top' + list[0]['downloadLink']
+
+    if not os.path.exists('data/'):
+        os.mkdir('data/')
+
     path = 'data/' + list[0]['name'] + '.zip'
 
-    urllib.request.urlretrieve(url,path)
-    print(f'USF压缩包已成功下载到 {path}')
+    if get == True:
+        urllib.request.urlretrieve(url,path)
+        print(f'USF压缩包已成功下载到 {path}')
+    else:
+        return path
 
-def urlfiletype(url):
+def urlfiletype(url):# 确认文件是js还是json 
     parsed_url = urlparse(url)
     filename = parsed_url.path.split('/')[-1]
     
